@@ -1,0 +1,32 @@
+@import "styles/_variables.scss";
+
+body {
+  color: white;
+}
+
+h1,
+h2 {
+  font-family: $title;
+}
+
+p,
+a {
+  font-family: $text;
+}
+
+button {
+  height: 50px;
+  padding: 0 30px;
+  border-radius: 6px;
+  font-family: $text;
+  border: none;
+  letter-spacing: 1px;
+  font-weight: 600;
+  color: white;
+  background-color: blue;
+  max-width: 200px;
+  width: 100%;
+  &:disabled {
+    filter: grayscale(0.9);
+  }
+}
