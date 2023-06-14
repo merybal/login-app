@@ -1,0 +1,36 @@
+@import "styles/_variables.scss";
+@import "styles/_base.scss";
+
+.form-container {
+  text-align: center;
+
+  .login-container {
+    padding: 30px 23px;
+
+    h1 {
+      margin-bottom: 27px;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+      margin-bottom: 28px;
+    }
+  }
+
+  a {
+    margin-bottom: 32px;
+    font-family: $text-font;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    text-decoration-line: underline;
+    color: $button-default;
+
+    &:visited {
+      color: $button-default;
+    }
+  }
+}

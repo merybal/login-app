@@ -1,18 +1,18 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import RootLayout from "views/RootLayout/RootLayout";
-import LoginView from "views/LoginView/LoginView";
-import RetrievePasswordView from "views/RetrievePasswordView/RetrievePasswordView";
+import HomeView from "views/HomeView/HomeView";
+import LoginForm from "components/Login/Form";
+import RetrievePasswordForm from "components/RetrievePassword/Form";
 
 // import "./App.scss"; //TODO
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <RootLayout />,
+    element: <HomeView />,
     children: [
-      { path: "/", element: <LoginView /> },
-      { path: "/retrieve-password", element: <RetrievePasswordView /> },
+      { path: "/", element: <LoginForm /> },
+      { path: "/retrieve-password", element: <RetrievePasswordForm /> },
     ],
   },
 ]);

@@ -5,6 +5,7 @@ import styles from "views/LoginView/LoginView.module.scss";
 import AppDevelopment2 from "assets/AppDevelopment2.png";
 
 const LoginView = () => {
+  // TODO borrar componente
   return (
     <div className={styles["login-view"]}>
       <div className={styles.background}></div>
