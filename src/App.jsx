@@ -1,21 +1,24 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+import RootLayout from "views/RootLayout/RootLayout";
 import LoginView from "views/LoginView/LoginView";
+import RetrievePasswordView from "views/RetrievePasswordView/RetrievePasswordView";
 
-import "./App.scss";
+// import "./App.scss"; //TODO
 
-import LogoA from "assets/Logo.png";
-import { ReactComponent as LogoB } from "assets/TekBNK.svg";
-import AppDevelopment2 from "assets/AppDevelopment2.png";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <RootLayout />,
+    children: [
+      { path: "/", element: <LoginView /> },
+      { path: "/retrieve-password", element: <RetrievePasswordView /> },
+    ],
+  },
+]);
 
 function App() {
-  return (
-    <div className="app">
-      <header>
-        <img src={LogoA} alt="logo" />
-        <LogoB alt="TekBNK" />
-      </header>
-      <LoginView />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

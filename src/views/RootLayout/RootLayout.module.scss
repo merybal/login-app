@@ -1,0 +1,11 @@
+@import "src/styles/_variables.scss";
+@import "src/styles/_base.scss";
+
+header {
+  margin-top: 22px;
+  margin-bottom: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center; //TODO revisar porque en el figma no esta centrado
+  gap: 6px;
+}
