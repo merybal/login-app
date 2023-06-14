@@ -1,17 +1,25 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
 //FONTS
 
-$title: "Montserrat", sans-serif;
-$text: "Libre Franklin", sans-serif;
+$text-font: "Lato", sans-serif;
+$error-font: "Encode Sans", sans-serif;
 
-//COLORS
-$dark1: #25171a;
-$dark2: #4b244a;
-$medium: #533a7b;
-$light1: #6969b3;
-$light2: #98c1d9;
-$button: blue;
-$text-color: white;
-$error: #e3242b;
+// FONT SIZES //TODO borrar las que no se usen
+$size-sm: 0.75rem; /* 12px */
+$size-base: 1rem; /* 16px, browser base */
+$size-md: 1.25rem; /* 20px */
+$size-lg: 1.5rem; /* 24px */
+$size-xl: 1.75rem; /* 28px */
+$size-xxl: 2rem; /* 32px */
+$size-xxxl: 2.25rem; /* 36px */
+
+// COLORS
+$dark-gray: #3b3b3b;
+$light-gray: #939393;
+$error-red: #d42f1a;
+$button-default: #8a3879;
+$button-hover: #a54f93;
+$button-pressed: #78306b;
+$button-disablesd: #eccae5;

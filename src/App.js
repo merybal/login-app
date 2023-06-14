@@ -1,25 +1,16 @@
-// import logo from './logo.svg';
+import LogoA from "assets/Logo.png";
+import { ReactComponent as LogoB } from "assets/TekBNK.svg";
 
-// import "./App.css";
+import "./App.scss";
 
 import LoginView from "views/LoginView/LoginView";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
+    <div className="app">
+      <header>
+        <img src={LogoA} className="App-logo" alt="logo" />
+        <LogoB />
       </header>
       <LoginView />
     </div>
