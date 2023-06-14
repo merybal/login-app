@@ -6,7 +6,7 @@
 $text-font: "Lato", sans-serif;
 $error-font: "Encode Sans", sans-serif;
 
-// FONT SIZES //TODO borrar las que no se usen
+// FONT SIZES
 $size-sm: 0.75rem; /* 12px */
 $size-base: 1rem; /* 16px, browser base */
 $size-md: 1.25rem; /* 20px */
@@ -14,6 +14,7 @@ $size-lg: 1.5rem; /* 24px */
 $size-xl: 1.75rem; /* 28px */
 $size-xxl: 2rem; /* 32px */
 $size-xxxl: 2.25rem; /* 36px */
+$size-input: 2.625rem; /* 42 px */
 
 // COLORS
 $dark-gray: #3b3b3b;
@@ -23,4 +24,6 @@ $background: #e1c6dc;
 $button-default: #8a3879;
 $button-hover: #a54f93;
 $button-pressed: #78306b;
-$button-disablesd: #eccae5;
+$button-disabled: #eccae5;
+$input-active: #649fd6;
+$white: #ffffff;

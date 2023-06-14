@@ -1,0 +1,28 @@
+@import "styles/_variables.scss";
+@import "styles/_base.scss";
+
+button {
+  height: $size-input;
+  width: 100%;
+  padding: 12px 125px;
+  background-color: $button-default;
+  border-radius: 7px;
+  border: none;
+  font-size: $size-base;
+  font-weight: 400;
+  color: $white;
+
+  &:hover {
+    background-color: $button-hover;
+    box-shadow: 0px 0px 6px rgba(165, 79, 147, 0.85);
+  }
+
+  &:active {
+    background-color: $button-pressed;
+    box-shadow: 0px 0px 6px rgba(120, 48, 107, 0.85);
+  }
+
+  &:disabled {
+    background-color: $button-disabled;
+  }
+}

@@ -7,8 +7,19 @@
 h1,
 h2,
 p,
-a {
+a,
+label {
   font-family: $text-font;
+}
+
+h1 {
+  font-family: $text-font;
+  font-style: normal;
+  font-weight: 700;
+  font-size: $size-lg;
+  display: flex;
+  align-items: flex-end;
+  color: $dark-gray;
 }
 
 // button {
