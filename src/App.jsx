@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import HomeView from "views/HomeView/HomeView";
-import LoginForm from "components/Login/Form";
-import RetrievePasswordForm from "components/RetrievePassword/Form";
+import LoginForm from "components/LoginForm/LoginForm";
+import RetrievePasswordForm from "components/RetrievePasswordForm/RetrievePasswordForm";
 
 // import "./App.scss"; //TODO
 

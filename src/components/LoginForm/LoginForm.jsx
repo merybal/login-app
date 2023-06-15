@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 import Input from "components/Common/Input";
 import Button from "components/Common/Button";
 
-import styles from "components/Login/Form.module.scss";
+import styles from "components/LoginForm/LoginForm.module.scss";
 
-const Form = () => {
+const LoginForm = () => {
   return (
     <div className={styles["form-container"]}>
       <form className={styles["login-container"]}>
@@ -31,4 +31,4 @@ const Form = () => {
   );
 };
 
-export default Form;
+export default LoginForm;

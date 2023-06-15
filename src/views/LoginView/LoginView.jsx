@@ -1,4 +1,4 @@
-import Form from "components/Login/Form";
+import Form from "components/LoginForm/LoginForm";
 
 import styles from "views/LoginView/LoginView.module.scss";
 
