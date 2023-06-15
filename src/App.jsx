@@ -4,7 +4,7 @@ import HomeView from "views/HomeView/HomeView";
 import LoginForm from "components/LoginForm/LoginForm";
 import RetrievePasswordForm from "components/RetrievePasswordForm/RetrievePasswordForm";
 
-// import "./App.scss"; //TODO
+import "./App.scss"; //TODO
 
 const router = createBrowserRouter([
   {
@@ -18,7 +18,7 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return <RouterProvider router={router} className="app" />;
 }
 
 export default App;

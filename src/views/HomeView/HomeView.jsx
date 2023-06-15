@@ -4,26 +4,35 @@ import styles from "views/HomeView/HomeView.module.scss";
 
 import LogoA from "assets/Logo.png";
 import { ReactComponent as LogoB } from "assets/TekBNK.svg";
-import AppDevelopment2 from "assets/AppDevelopment2.png";
+import AppDevelopment from "assets/AppDevelopment.png";
 
 const HomeView = () => {
   return (
-    <div>
-      <header>
+    <div className={styles["home-view"]}>
+      <div className={styles.header}>header</div>
+      <div className={styles.main}>
+        main
+        <div className={styles.image}>image</div>
+        <div className={styles.form}>form</div>
+      </div>
+      {/* <header>
         <img src={LogoA} alt="logo" />
         <LogoB alt="TekBNK" />
       </header>
-      <main className={styles["home-view"]}>
-        <div className={styles.background}></div>
-        <img
-          src={AppDevelopment2}
-          className={styles["development-img"]}
-          alt="ilustration of app development process"
-        />
-        <div className={styles.form}>
-          <Outlet />
+      <main className={styles["main"]}>
+        main
+        <div className={styles["img-container"]}>
+          image container
+          <img
+            src={AppDevelopment}
+            className={styles["development-img"]}
+            alt="ilustration of app development process"
+          />
         </div>
-      </main>
+        <div className={styles.form}>
+          <Outlet className={styles.form} />
+        </div>
+      </main> */}
     </div>
   );
 };

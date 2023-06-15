@@ -3,11 +3,41 @@
 
 .form-container {
   text-align: center;
+  margin-bottom: 32px; //TODO chequear con el fondo blanco que onda
+  // height: 100%;
+  background-color: $white;
+  box-shadow: 0px -14px 16px rgba(0, 0, 0, 0.05);
+  border-radius: 40px 40px 0px 0px;
 
   .login-container {
     padding: 30px 23px;
     h1 {
-      margin-bottom: 27px;
+      margin-bottom: 27px; //TODO ver si se pasa al _base
+    }
+
+    .warning {
+      display: flex;
+      padding: 16px;
+      border: 1px solid #ffb1b8;
+      border-radius: 6px;
+      background-color: #fee7e9;
+      gap: 16px;
+
+      svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      p {
+        text-align: left;
+        font-family: $error-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size-warning;
+        line-height: 21px;
+        color: #3c3c3b;
+      }
+      margin-bottom: 28px;
     }
 
     .form {
@@ -20,7 +50,6 @@
   }
 
   a {
-    margin-bottom: 32px;
     font-family: $text-font;
     font-style: normal;
     font-weight: 400;
