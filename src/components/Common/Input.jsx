@@ -8,13 +8,6 @@ const Input = (props) => {
   const [inputType, setInputType] = useState(props.type);
   const [inputValue, setInputValue] = useState("");
 
-  // const [eyeIconVisible, setEyeIconVisible] = useState(true);
-
-  // const [passwordType, setPasswordType] = useState("password");
-  // const [passwordInput, setPasswordInput] = useState("");
-
-  // let eyeIconVisible = false;
-
   let eyeIcon = "";
 
   const togglePassword = () => {
@@ -63,19 +56,7 @@ const Input = (props) => {
           //   onChange={nameChangeHandler}
         />
         {props.type === "password" && eyeIcon}
-        {/* {eyeIconVisible && (
-          <EyeOpen
-            className={styles.eye}
-            alt="eye open to reveal password"
-            onClick={togglePassword}
-          />
-        )} */}
-        {/* <EyeClosed className={styles.eye} alt="eye closed to hide password" /> */}
       </div>
-
-      {/* AGREGAR OJITO
-      https://medium.com/@miguelznunez/html-css-javascript-how-to-show-hide-password-using-the-eye-icon-27f033bf84ad
-      https://codingstatus.com/show-and-hide-password-using-react-js/*/}
     </div>
   );
 };

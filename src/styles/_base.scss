@@ -20,21 +20,5 @@ h1 {
   display: flex;
   align-items: flex-end;
   color: $dark-gray;
+  margin-bottom: 27px;
 }
-
-// button {
-//   height: 50px;
-//   padding: 0 30px;
-//   border-radius: 6px;
-//   font-family: $text-font;
-//   border: none;
-//   letter-spacing: 1px;
-//   font-weight: 600;
-//   color: white;
-//   background-color: blue;
-//   max-width: 200px;
-//   width: 100%;
-//   &:disabled {
-//     filter: grayscale(0.9);
-//   }
-// }
