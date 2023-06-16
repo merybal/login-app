@@ -13,11 +13,9 @@ const Input = (props) => {
   // const [passwordType, setPasswordType] = useState("password");
   // const [passwordInput, setPasswordInput] = useState("");
 
-  let eyeIconVisible = false;
+  // let eyeIconVisible = false;
 
-  if (props.type === "password") {
-    eyeIconVisible = true;
-  }
+  let eyeIcon = "";
 
   const togglePassword = () => {
     if (inputType === "password") {
@@ -26,6 +24,24 @@ const Input = (props) => {
     }
     setInputType("password");
   };
+
+  if (inputType === "password") {
+    eyeIcon = (
+      <EyeOpen
+        className={styles.eye}
+        alt="eye open to reveal password"
+        onClick={togglePassword}
+      />
+    );
+  } else {
+    eyeIcon = (
+      <EyeClosed
+        className={styles.eye}
+        alt="eye closed to hide password"
+        onClick={togglePassword}
+      />
+    );
+  }
 
   return (
     <div className={styles["input-container"]}>
@@ -46,14 +62,14 @@ const Input = (props) => {
           //   value={enteredName}
           //   onChange={nameChangeHandler}
         />
-
-        {eyeIconVisible && (
+        {props.type === "password" && eyeIcon}
+        {/* {eyeIconVisible && (
           <EyeOpen
             className={styles.eye}
             alt="eye open to reveal password"
             onClick={togglePassword}
           />
-        )}
+        )} */}
         {/* <EyeClosed className={styles.eye} alt="eye closed to hide password" /> */}
       </div>
 
