@@ -19,25 +19,39 @@
     }
   }
 
-  input {
-    height: $size-input;
-    padding: 10px 12px 10px 10px;
-    box-sizing: border-box;
-    border: 1px solid $light-gray;
-    border-radius: 7px;
+  .field-container {
     width: 100%;
-    font-size: $size-base;
-    font-style: normal;
-    font-weight: 400;
-    color: $light-gray;
+    position: relative;
+    input {
+      height: $size-input;
+      padding: 10px 12px 10px 10px;
+      box-sizing: border-box;
+      border: 1px solid $light-gray;
+      border-radius: 7px;
+      width: 100%;
+      font-size: $size-base;
+      font-style: normal;
+      font-weight: 400;
+      color: $light-gray;
 
-    &:active {
-      border: 1px solid $input-active;
-      outline: none;
+      &:active {
+        border: 1px solid $input-active;
+        outline: none;
+      }
+      &:focus-visible {
+        outline: none;
+        border: 1px solid $input-active;
+      }
     }
-    &:focus-visible {
-      outline: none;
-      border: 1px solid $input-active;
+
+    .eye {
+      position: absolute;
+      top: 29%;
+      right: 3%;
+      cursor: pointer;
+      g {
+        width: 30px;
+      }
     }
   }
 

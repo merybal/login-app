@@ -24,6 +24,8 @@
     .image-container {
       height: 100%;
       width: 100%;
+      margin-bottom: 20px;
+      // flex-shrink: 2; //TODO agregar media query a partir de 667 height
 
       .image {
         background: url("../../assets/AppDevelopment.png");
@@ -31,22 +33,20 @@
         background-origin: content-box;
         background-repeat: no-repeat;
         background-position: center;
-        height: 80%;
-        padding: 30px;
+        height: 100%;
+        padding: 0 15% 0 15%;
       }
     }
 
     .form {
-      background-color: yellow;
       height: 350px;
-      flex-shrink: 0;
     }
   }
 
   .background {
     position: absolute;
-    bottom: 0;
-    height: 76%;
+    top: 20%;
+    height: 60%;
     width: 100%;
     background-color: $background;
     border-radius: 40px 40px 0px 0px;
