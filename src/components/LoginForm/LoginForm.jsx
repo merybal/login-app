@@ -12,10 +12,10 @@ const LoginForm = () => {
     <div className={styles["form-container"]}>
       <form className={styles["login-container"]}>
         <h1>Iniciá sesión</h1>
-        <div className={styles.warning}>
+        {/* <div className={styles.warning}>
           <Warning className={styles["warning-icon"]} alt="warning sign icon" />
           <p>El nombre de usuario o la contraseña son incorrectos</p>
-        </div>
+        </div> */}
         <div className={styles["form"]}>
           <Input
             id="username"
