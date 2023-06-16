@@ -13,7 +13,7 @@ const LoginForm = () => {
       <form className={styles["login-container"]}>
         <h1>Iniciá sesión</h1>
         {/* <div className={styles.warning}>
-          <Warning className={styles["warning-icon"]} alt="warning sign icon" />
+          <Warning alt="warning sign icon" />
           <p>El nombre de usuario o la contraseña son incorrectos</p>
         </div> */}
         <div className={styles["form"]}>
