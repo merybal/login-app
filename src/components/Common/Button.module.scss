@@ -24,5 +24,6 @@ button {
 
   &:disabled {
     background-color: $button-disabled;
+    pointer-events: none;
   }
 }

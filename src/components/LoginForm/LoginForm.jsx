@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Input from "components/Common/Input";
@@ -11,31 +11,61 @@ import { ReactComponent as Warning } from "assets/Warning.svg";
 const LoginForm = () => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [usernameError, setUsernameError] = useState(false);
-  const [passwordError, setPasswordError] = useState(false);
+  const [usernameIsValid, setUsernameIsValid] = useState(true);
+  const [passwordIsValid, setPasswordIsValid] = useState(true);
+  const [passwordTouched, setPasswordTouched] = useState(false);
+  const [formIsValid, setFormIsValid] = useState(true);
+  const [showWarning, setShowWarning] = useState(false);
+
+  //To only display warning the first time the form is submitted
+  let showWarningCounter = 0;
+
+  useEffect(() => {
+    if (usernameIsValid && passwordIsValid) {
+      setFormIsValid(true);
+    } else {
+      setFormIsValid(false);
+    }
+  }, [usernameIsValid, passwordIsValid]);
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
+    showWarningCounter++;
 
-    console.log("submit");
+    if (enteredUsername.trim() === "") {
+      setUsernameIsValid(false);
+    }
+    if (enteredPassword.trim() === "") {
+      setPasswordIsValid(false);
+    }
+
+    if (enteredUsername.trim() === "" || enteredPassword.trim() === "") {
+      setFormIsValid(false);
+      return;
+    }
+
+    // if (showWarningCounter === 1) {setShowWarning(true)};
+
+    console.log("submit", enteredUsername, enteredPassword);
   };
 
   const enteredUsernameHandler = (inputValue) => {
-    if (inputValue === "") {
-      setUsernameError(true);
+    setEnteredUsername(inputValue);
+    if (inputValue.trim() === "") {
+      setUsernameIsValid(false);
       return;
     }
-    setEnteredUsername(inputValue);
-    setUsernameError(false);
+    setUsernameIsValid(true);
   };
 
   const enteredPasswordHandler = (inputValue) => {
-    if (inputValue === "") {
-      setPasswordError(true);
+    setEnteredPassword(inputValue);
+    setPasswordTouched(true);
+    if (inputValue.trim() === "") {
+      setPasswordIsValid(false);
       return;
     }
-    setEnteredPassword(inputValue);
-    setPasswordError(false);
+    setPasswordIsValid(true);
   };
 
   return (
@@ -45,17 +75,19 @@ const LoginForm = () => {
         onSubmit={formSubmissionHandler}
       >
         <h1>Iniciá sesión</h1>
-        {/* <div className={styles.warning}>
-          <Warning alt="warning sign icon" />
-          <p>El nombre de usuario o la contraseña son incorrectos</p>
-        </div> */}
+        {showWarning && (
+          <div className={styles.warning}>
+            <Warning alt="warning sign icon" />
+            <p>El nombre de usuario o la contraseña son incorrectos</p>
+          </div>
+        )}
         <div className={styles["form"]}>
           <Input
             id="username"
             label="Usuario"
             type="text"
             placeholder="Ingresá tu usuario"
-            error={usernameError}
+            showError={!usernameIsValid}
             onInputChange={enteredUsernameHandler}
           />
           <Input
@@ -63,12 +95,12 @@ const LoginForm = () => {
             label="Contraseña"
             type="password"
             placeholder="Ingresá tu contraseña"
-            error={passwordError}
+            showError={!passwordIsValid}
             // onInputChange={(event) => validationHandler(event, "password")}
             onInputChange={enteredPasswordHandler}
           />
         </div>
-        <Button text="Ingresar" state="" />
+        <Button text="Ingresar" disabled={!formIsValid} />
       </form>
       <Link to="/retrieve-password">Olvidé mi contraseña</Link>
     </div>

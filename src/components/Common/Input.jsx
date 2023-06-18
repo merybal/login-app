@@ -25,6 +25,7 @@ const Input = (props) => {
     setInputType("password");
   };
 
+  //TODO mejorar
   if (inputType === "password") {
     eyeIcon = (
       <EyeOpen
@@ -51,7 +52,9 @@ const Input = (props) => {
       <div className={styles["field-container"]}>
         <input
           id={props.id}
-          className={`${styles.input} ${props.error && styles["error-input"]} `}
+          className={`${styles.input} ${
+            props.showError && styles["error-input"]
+          } `}
           type={inputType}
           placeholder={props.placeholder}
           onChange={inputChangeHandler}
@@ -59,7 +62,7 @@ const Input = (props) => {
         />
         {props.type === "password" && eyeIcon}
       </div>
-      {props.error && (
+      {props.showError && (
         <div className={styles["error-message"]}>
           <Warning alt="warning sign icon" />
           <strong>Este campo no debe estar vacío</strong>
