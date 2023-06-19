@@ -8,64 +8,66 @@ import styles from "components/LoginForm/LoginForm.module.scss";
 
 import { ReactComponent as Warning } from "assets/Warning.svg";
 
+//To only display warning the first time the form is submitted
+let firstLoginAttemptFlag = true;
+
 const LoginForm = () => {
   const [enteredUsername, setEnteredUsername] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
   const [usernameIsValid, setUsernameIsValid] = useState(true);
   const [passwordIsValid, setPasswordIsValid] = useState(true);
-  const [passwordTouched, setPasswordTouched] = useState(false);
   const [formIsValid, setFormIsValid] = useState(true);
   const [showWarning, setShowWarning] = useState(false);
 
-  //To only display warning the first time the form is submitted
-  let showWarningCounter = 0;
-
   useEffect(() => {
-    if (usernameIsValid && passwordIsValid) {
-      setFormIsValid(true);
-    } else {
-      setFormIsValid(false);
-    }
+    setFormIsValid(usernameIsValid && passwordIsValid);
   }, [usernameIsValid, passwordIsValid]);
+
+  const validateInput = (inputValue) => {
+    return inputValue.trim() !== "";
+  };
 
   const formSubmissionHandler = (event) => {
     event.preventDefault();
-    showWarningCounter++;
 
-    if (enteredUsername.trim() === "") {
-      setUsernameIsValid(false);
-    }
-    if (enteredPassword.trim() === "") {
-      setPasswordIsValid(false);
-    }
+    const usernameValidation = validateInput(enteredUsername);
+    const passwordValidation = validateInput(enteredPassword);
 
-    if (enteredUsername.trim() === "" || enteredPassword.trim() === "") {
+    setUsernameIsValid(usernameValidation);
+    setPasswordIsValid(passwordValidation);
+
+    if (!usernameValidation || !passwordValidation) {
       setFormIsValid(false);
       return;
     }
 
-    // if (showWarningCounter === 1) {setShowWarning(true)};
+    if (
+      !showWarning &&
+      usernameValidation &&
+      passwordValidation &&
+      firstLoginAttemptFlag
+    ) {
+      setShowWarning(true);
+      firstLoginAttemptFlag = false;
+      return;
+    }
 
-    console.log("submit", enteredUsername, enteredPassword);
+    if (showWarning) {
+      setShowWarning(false);
+    }
+
+    //insert POST method
+    console.log("SUBMIT FORM", enteredUsername, enteredPassword);
   };
 
   const enteredUsernameHandler = (inputValue) => {
     setEnteredUsername(inputValue);
-    if (inputValue.trim() === "") {
-      setUsernameIsValid(false);
-      return;
-    }
-    setUsernameIsValid(true);
+    setUsernameIsValid(validateInput(inputValue));
   };
 
   const enteredPasswordHandler = (inputValue) => {
     setEnteredPassword(inputValue);
-    setPasswordTouched(true);
-    if (inputValue.trim() === "") {
-      setPasswordIsValid(false);
-      return;
-    }
-    setPasswordIsValid(true);
+    setPasswordIsValid(validateInput(inputValue));
   };
 
   return (
@@ -96,7 +98,6 @@ const LoginForm = () => {
             type="password"
             placeholder="Ingresá tu contraseña"
             showError={!passwordIsValid}
-            // onInputChange={(event) => validationHandler(event, "password")}
             onInputChange={enteredPasswordHandler}
           />
         </div>

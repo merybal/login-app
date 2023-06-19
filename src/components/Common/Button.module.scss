@@ -15,6 +15,7 @@ button {
   &:hover {
     background-color: $button-hover;
     box-shadow: 0px 0px 6px rgba(165, 79, 147, 0.85);
+    cursor: pointer;
   }
 
   &:active {

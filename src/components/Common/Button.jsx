@@ -4,12 +4,9 @@ const Button = (props) => {
   /* TODO: 
     - logica disabled para que se cambie la clase pero ademas se inhabilite
     - logica loading (tiene que estar disabled tambien?)
+    - disparo del evento va aca o no?
 */
-  return (
-    <button className="" disabled={props.disabled}>
-      {props.text}
-    </button>
-  );
+  return <button disabled={props.disabled}>{props.text}</button>;
 };
 
 export default Button;

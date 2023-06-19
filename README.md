@@ -2,6 +2,7 @@ Libraries so far:
 -React
 -React router
 -Sass
+-React Select
 
 # Getting Started with Create React App
 
