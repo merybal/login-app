@@ -1,32 +1,53 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Select from "react-select";
 
+import SelectInput from "components/Common/Select";
 import Input from "components/Common/Input";
 import Button from "components/Common/Button";
 
 import styles from "components/RetrievePasswordForm/RetrievePasswordForm.module.scss";
 
+const personalIdOptions = [
+  { value: "dni", label: "DNI" },
+  { value: "ci", label: "C.I." },
+  { value: "passport", label: "Pasaporte" },
+];
+
 const RetrievePasswordForm = () => {
   const [enteredPersonalId, setEnteredPersonalId] = useState("");
-  // const [enteredPassword, setEnteredPassword] = useState("");
+  const [enteredPersonalIdType, setEnteredPersonalIdType] = useState(
+    personalIdOptions[0]
+  );
   const [personalIdIsValid, setPersonalIdIsValid] = useState(true);
-  // const [passwordIsValid, setPasswordIsValid] = useState(true);
   const [formIsValid, setFormIsValid] = useState(true);
 
-  const options = [
-    { value: "dni", label: "DNI" },
-    { value: "ci", label: "C.I." },
-    { value: "passport", label: "Pasaporte" },
-  ];
+  /*when form has an error, button gets disabled
+  useEffect enables button after input is corrected*/
+  useEffect(() => {
+    setFormIsValid(personalIdIsValid);
+  }, [personalIdIsValid]);
 
   const enteredPersonalIdHandler = (inputValue) => {
     setEnteredPersonalId(inputValue);
-    if (inputValue.trim() === "") {
-      setPersonalIdIsValid(false);
+    setPersonalIdIsValid(inputValue);
+  };
+
+  const selectedOptionHandler = (value) => {
+    setEnteredPersonalIdType(value);
+  };
+
+  const formSubmissionHandler = (event) => {
+    event.preventDefault();
+
+    setPersonalIdIsValid(enteredPersonalId);
+
+    if (!enteredPersonalId) {
+      setFormIsValid(false);
       return;
     }
-    setPersonalIdIsValid(true);
+
+    //insert POST method
+    console.log("SUBMIT FORM", enteredPersonalIdType.label, enteredPersonalId);
   };
 
   return (
@@ -34,14 +55,13 @@ const RetrievePasswordForm = () => {
       <form className={styles["login-container"]}>
         <h1>Olvidé mi contraseña</h1>
         <div className={styles["form"]}>
-          <Select options={options} />
-          {/* <Input
-            //   TODO cambiar a select
+          <SelectInput
             id="personalIdType"
             label="Tipo de documento"
-            type="text"
-            placeholder="Ingresá tu usuario"
-          /> */}
+            defaultValue={[enteredPersonalIdType]}
+            options={personalIdOptions}
+            onSelectChange={selectedOptionHandler}
+          />
           <Input
             id="personalId"
             label="Número de documento"
@@ -53,7 +73,11 @@ const RetrievePasswordForm = () => {
         </div>
         <div className={styles["button-container"]}>
           <Link to="..">Volver</Link>
-          <Button text="Continuar" state="" />
+          <Button
+            text="Continuar"
+            disabled={!formIsValid}
+            onButtonClicked={formSubmissionHandler}
+          />
         </div>
       </form>
     </div>

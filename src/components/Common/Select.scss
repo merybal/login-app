@@ -1,0 +1,122 @@
+@import "styles/_variables.scss";
+@import "styles/_base.scss";
+
+.select-component {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  width: 100%;
+
+  label {
+    font-style: normal;
+    font-weight: 600;
+    font-size: $size-base;
+    color: $dark-gray;
+
+    span {
+      color: $error-red;
+      font-family: $error-font;
+    }
+  }
+
+  .react-select-container {
+    width: 100%;
+
+    .react-select {
+      &-container {
+        width: 100%;
+      }
+
+      &__control {
+        border-radius: 7px;
+        text-align: left;
+        height: 42px;
+        cursor: pointer;
+        border: 1px solid $light-gray;
+
+        &--is-focused {
+          border: 1px solid #649fd6;
+          box-shadow: none;
+        }
+      }
+
+      &__value-container {
+        padding-left: 10px;
+      }
+
+      &__single-value {
+        color: $light-gray;
+        font-family: $text-font;
+        font-style: normal;
+        font-weight: 400;
+        font-size: $size-base;
+        line-height: $size-md;
+      }
+
+      &__indicators {
+        span {
+          background-color: unset;
+        }
+        svg {
+          fill: #696969;
+          stroke-width: 1;
+        }
+      }
+
+      &__indicator {
+        svg {
+          fill: #696969;
+          stroke-width: 1;
+        }
+        &:hover {
+          svg {
+            fill: #696969;
+            stroke-width: 1;
+          }
+        }
+
+        &--is-selected {
+          svg {
+            fill: #696969;
+            stroke-width: 1;
+          }
+        }
+
+        &--is-focused {
+          svg {
+            fill: #696969;
+            stroke-width: 1;
+          }
+        }
+      }
+
+      &__menu {
+        background: $white;
+        box-shadow: 0px 4px 9px rgba(0, 0, 0, 0.08);
+        border-radius: 7px;
+        padding: 6px;
+      }
+      &__menu-list {
+      }
+      &__option {
+        position: relative;
+        color: #555555;
+        width: 100;
+        height: 42px;
+        padding: 12px 24px;
+        text-align: left;
+        cursor: pointer;
+
+        &--is-selected {
+          background-color: unset;
+        }
+
+        &--is-focused {
+          background-color: $button-disabled;
+          border-radius: 7px;
+        }
+      }
+    }
+  }
+}
