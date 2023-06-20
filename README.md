@@ -1,6 +1,6 @@
 # Login App
 
-Responsive Login SPA, with a retrieve password page, developed with React and JavaScript. Some accesibility features (like aria labels) are included in this app.
+Responsive Login SPA, with a retrieve password page, developed with React and JavaScript. Some accessibility features (like aria labels) are included in this app.
 
 Notes:
 
