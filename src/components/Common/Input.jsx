@@ -17,6 +17,7 @@ const Input = (props) => {
 
   let eyeIcon = "";
 
+  // changes visibility of eyes altogether
   const togglePassword = () => {
     if (inputType === "password") {
       setInputType("text");
@@ -25,24 +26,27 @@ const Input = (props) => {
     setInputType("password");
   };
 
-  //TODO mejorar
+  // changes visibility of password as well as open eye for closed eye
+  //TODO refactor
   if (inputType === "password") {
     eyeIcon = (
       <EyeOpen
         className={styles.eye}
-        alt="eye open to reveal password"
         onClick={togglePassword}
+        title="botón de ojo abierto para revelar contraseña" //works as alt for svg
       />
     );
   } else {
     eyeIcon = (
       <EyeClosed
         className={styles.eye}
-        alt="eye closed to hide password"
         onClick={togglePassword}
+        title="botón de ojo cerrado para ocultar contraseña"
       />
     );
   }
+
+  //possible improvement: make 'required' optional via prop.
 
   return (
     <div className={styles["input-container"]}>
@@ -59,12 +63,15 @@ const Input = (props) => {
           placeholder={props.placeholder}
           onChange={inputChangeHandler}
           value={inputValue}
+          aria-required="true"
+          aria-invalid="true"
+          aria-errormessage="error"
         />
         {props.type === "password" && eyeIcon}
       </div>
       {props.showError && (
-        <div className={styles["error-message"]}>
-          <Warning alt="warning sign icon" />
+        <div className={styles["error-message"]} id="error">
+          <Warning title="icono de alerta" />
           <strong>Este campo no debe estar vacío</strong>
         </div>
       )}

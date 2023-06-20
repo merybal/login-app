@@ -21,6 +21,10 @@ const RetrievePasswordForm = () => {
   const [personalIdIsValid, setPersonalIdIsValid] = useState(true);
   const [formIsValid, setFormIsValid] = useState(true);
 
+  useEffect(() => {
+    document.title = "Página de recuperación de contraseña";
+  }, []);
+
   /*when form has an error, button gets disabled
   useEffect enables button after input is corrected*/
   useEffect(() => {
@@ -61,6 +65,7 @@ const RetrievePasswordForm = () => {
             defaultValue={[enteredPersonalIdType]}
             options={personalIdOptions}
             onSelectChange={selectedOptionHandler}
+            ariaLabel="seleccionar tipo de documento"
           />
           <Input
             id="personalId"
@@ -72,11 +77,14 @@ const RetrievePasswordForm = () => {
           />
         </div>
         <div className={styles["button-container"]}>
-          <Link to="..">Volver</Link>
+          <Link to=".." aria-label="volver a la página de inicio de sesión">
+            Volver
+          </Link>
           <Button
             text="Continuar"
             disabled={!formIsValid}
             onButtonClicked={formSubmissionHandler}
+            ariaLabel="confirmar envío de formulario"
           />
         </div>
       </form>

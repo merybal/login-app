@@ -4,7 +4,7 @@ import HomeView from "views/HomeView/HomeView";
 import LoginForm from "components/LoginForm/LoginForm";
 import RetrievePasswordForm from "components/RetrievePasswordForm/RetrievePasswordForm";
 
-import "./App.scss"; //TODO
+import "./App.scss";
 
 const router = createBrowserRouter([
   {

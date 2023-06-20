@@ -21,6 +21,10 @@ const LoginForm = () => {
   const [showWarning, setShowWarning] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    document.title = "Página de inicio de sesión";
+  }, []);
+
   /*when form has an error, button gets disabled
   useEffect enables button after input is corrected*/
   useEffect(() => {
@@ -89,12 +93,17 @@ const LoginForm = () => {
       >
         <h1>Iniciá sesión</h1>
         {showWarning && (
-          <div className={styles.warning}>
-            <Warning alt="warning sign icon" />
+          <div
+            className={styles.warning}
+            aria-label="cartel de advertencia"
+            aria-invalid="true"
+            aria-errormessage="formError"
+          >
+            <Warning title="icono de advertencia" />
             <p>El nombre de usuario o la contraseña son incorrectos</p>
           </div>
         )}
-        <div className={styles["form"]}>
+        <div className={styles["form"]} id="formError">
           <Input
             id="username"
             label="Usuario"
@@ -116,16 +125,13 @@ const LoginForm = () => {
           text="Ingresar"
           disabled={!formIsValid}
           onButtonClicked={formSubmissionHandler}
+          ariaLabel="confirmar formulario"
         />
       </form>
       <Link to="/retrieve-password">Olvidé mi contraseña</Link>
       {loading && (
-        <div className={styles["loading-screen"]}>
-          <img
-            src={LoadingSpinner}
-            alt="loading spinner"
-            className={styles.spinner}
-          />
+        <div className={styles["loading-screen"]} aria-busy="true">
+          <img src={LoadingSpinner} alt="cargando" className={styles.spinner} />
         </div>
       )}
     </div>

@@ -80,6 +80,7 @@ const SelectInput = (props) => {
         defaultValue={props.defaultValue}
         classNamePrefix="react-select"
         onChange={handleOptionChange}
+        aria-label={props.ariaLabel}
       />
     </div>
   );

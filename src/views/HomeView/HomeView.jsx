@@ -10,7 +10,7 @@ const HomeView = () => {
     <div className={styles["home-view"]}>
       <header className={styles.header}>
         <img src={LogoA} alt="logo" />
-        <LogoB alt="TekBNK" />
+        <LogoB title="logo de TekBNK" />
       </header>
       <main className={styles.main}>
         <div className={styles["image-container"]}>
