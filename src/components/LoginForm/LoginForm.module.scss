@@ -3,14 +3,30 @@
 
 .form-container {
   text-align: center;
-  padding-bottom: 32px; //TODO chequear con el fondo blanco que onda
+  padding-bottom: 32px;
   height: 100%;
   background-color: $white;
   box-shadow: 0px -14px 16px rgba(0, 0, 0, 0.05);
   border-radius: 40px 40px 0px 0px;
 
+  @media (min-width: $desktop-width-small) {
+    height: 100%;
+    box-shadow: none;
+    border-radius: none;
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
   .login-container {
     padding: 30px 23px;
+
+    @media (min-width: $desktop-width-small) {
+      padding: 0;
+      width: 320px;
+      margin-bottom: 56px;
+    }
 
     .warning {
       display: flex;

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap");
 
-//FONTS
+// FONTS
 
 $text-font: "Lato", sans-serif;
 $error-font: "Encode Sans", sans-serif;
@@ -28,3 +28,8 @@ $button-pressed: #78306b;
 $button-disabled: #eccae5;
 $input-active: #649fd6;
 $white: #ffffff;
+
+// MEDIA QUERIES
+$mobile-width-small: 380px;
+$desktop-width-small: 1200px;
+$desktop-width-max: 1166px;

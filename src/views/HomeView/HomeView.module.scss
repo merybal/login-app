@@ -7,13 +7,30 @@
   gap: 10px;
   height: 100vh;
 
+  @media (min-width: $desktop-width-small) {
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    max-width: $desktop-width-max;
+    gap: 0; //
+  }
+
   .header {
     flex-shrink: 0;
     padding-top: 22px;
     display: flex;
     align-items: center;
-    justify-content: center; //TODO revisar porque en el figma no esta centrado
+    justify-content: center;
     gap: 6px;
+
+    @media (min-width: $desktop-width-small) {
+      flex-shrink: unset;
+      padding-top: 0;
+      margin-left: -3px;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: $desktop-width-max;
+    }
   }
 
   .main {
@@ -21,11 +38,20 @@
     flex-direction: column;
     height: 100%;
 
+    @media (min-width: $desktop-width-small) {
+      flex-direction: row-reverse;
+      max-height: 582px;
+      justify-content: space-between;
+    }
+
     .image-container {
       height: 100%;
       width: 100%;
       margin-bottom: 20px;
-      // flex-shrink: 2; //TODO agregar media query a partir de 667 height
+
+      @media (min-width: $desktop-width-small) {
+        max-width: 758px;
+      }
 
       .image {
         background: url("../../assets/AppDevelopment.png");
@@ -35,6 +61,13 @@
         background-position: center;
         height: 100%;
         padding: 0 15% 0 15%;
+      }
+
+      @media (min-width: $mobile-width-small) {
+        flex-shrink: 2;
+        .image {
+          padding: 0 5% 0 5%;
+        }
       }
     }
 
@@ -51,5 +84,13 @@
     background-color: $background;
     border-radius: 40px 40px 0px 0px;
     z-index: -5;
+
+    @media (min-width: $desktop-width-small) {
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 48%;
+      border-radius: 108px 0px 0px 0px;
+    }
   }
 }

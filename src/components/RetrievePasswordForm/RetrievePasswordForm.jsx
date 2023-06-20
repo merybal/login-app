@@ -52,7 +52,7 @@ const RetrievePasswordForm = () => {
 
   return (
     <div className={styles["form-container"]}>
-      <form className={styles["login-container"]}>
+      <form className={styles["retrieve-password-container"]}>
         <h1>Olvidé mi contraseña</h1>
         <div className={styles["form"]}>
           <SelectInput
